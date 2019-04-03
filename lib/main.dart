@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Flutter Demo',
             theme: theme,
-            home: MyHomePage(title: 'Flutter Demo Home Page'),
+            home: MyHomePage(title: 'Flutter Demo'),
           );
         });
   }
@@ -28,6 +29,30 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+//class MySplashScreen extends StatefulWidget {
+//  MySplashScreen({Key key, this.title}) : super(key: key);
+//
+//  final String title; //always marked final
+//
+//  @override
+//  _MySplashScreenState createState() => _MySplashScreenState();
+//}
+//
+//class _MySplashScreenState extends State<MyHomePage> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return new SplashScreen(
+//        seconds: 5,
+//        navigateAfterSeconds: new MyHomePage(),
+//        title: new Text('Change This'),
+//        image: new Image.network(
+//            'https://flutter.dev/assets/flutter-lockup-4cb0ee072ab312e59784d9fbf4fb7ad42688a7fdaea1270ccf6bbf4f34b7e03f.svg'),
+//        backgroundColor: Colors.white,
+//        photoSize: 100.0,
+//        loaderColor: Colors.red);
+//  }
+//}
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
@@ -62,14 +87,17 @@ class _MyHomePageState extends State<MyHomePage> {
     //this method is called by setState above
     return Scaffold(
       appBar: AppBar(
-        title: Text("The Flutter Demo App"),
+        title: Text("Flutter Demo"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('Welcome to the Flutter Demo App!',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             Text(
-              'You have pushed the button $_counter times',
+              'Insert dope text here',
+              style: TextStyle(fontStyle: FontStyle.italic),
             ),
           ],
         ),
