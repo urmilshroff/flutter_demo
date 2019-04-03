@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return new DynamicTheme(
+        defaultBrightness: Brightness.light,
+        data: (brightness) =>
+            new ThemeData(primarySwatch: Colors.blue, brightness: brightness),
+        themedWidgetBuilder: (context, theme) {
+          return MaterialApp(
+            title: 'Flutter Demo',
+            theme: theme,
+            home: MyHomePage(title: 'Flutter Demo Home Page'),
+          );
+        });
   }
 }
 
@@ -29,12 +34,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells Flutter that something has changed in this
-      // State and needs to be updated in the next build
-
-      // setState() also calls Widget build() below
       _counter++;
+
+      // Calling setState tells Flutter that something has changed in this
+      // state and that it needs to be updated in the next build/run
+
+      // setState() also calls Widget build() below automatically
     });
+  }
+
+  void changeBrightness() {
+    DynamicTheme.of(context).setBrightness(
+        Theme.of(context).brightness == Brightness.dark
+            ? Brightness.light
+            : Brightness.dark);
+  }
+
+  void changeColor() {
+    DynamicTheme.of(context).setThemeData(new ThemeData(
+        primaryColor: Theme.of(context).primaryColor == Colors.blue
+            ? Colors.red
+            : Colors.blue));
   }
 
   @override
@@ -55,9 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        onPressed: changeBrightness,
+        tooltip: 'Light/dark mode',
+        child: Icon(Icons.brightness_2),
       ),
     );
   }
