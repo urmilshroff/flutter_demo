@@ -1,2 +1,3 @@
-# flutter_demo
-A demo app made with Flutter.
+# Flutter Demo
+
+A demo app made with Flutter and Dart, that can be compiled for both iOS and Android.
