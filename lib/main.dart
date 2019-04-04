@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   void changeBrightness() {
     DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
@@ -57,11 +56,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset('img/flutter-logo.png', height: 150, width: 150,),
             Text('Welcome to the Flutter Demo App!',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30.0,
+                )),
             Text(
-              'Insert dope text here',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              '\n*insert dope text here*',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontStyle: FontStyle.italic, fontSize: 18.0),
             ),
           ],
         ),
