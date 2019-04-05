@@ -22,7 +22,6 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   dynamic_theme: ^1.0.1
-  splashscreen:
 
 dev_dependencies:
   flutter_test:
