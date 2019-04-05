@@ -47,15 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     //this method is called by setState above
+
+//    if (DynamicTheme.of(context).brightness == Brightness.dark) {
+//      String mdi = "penis";
+//    } else {
+//      String mdi = "micro";
+//    }
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Demo"),
+        title: Text("Home Page"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('img/flutter-logo.png', height: 150, width: 150,),
+            Image.asset(
+              'img/flutter-logo.png',
+              height: 150,
+              width: 150,
+            ),
             Text('Welcome to the Flutter Demo App!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -63,9 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 30.0,
                 )),
             Text(
-              '\n*insert dope text here*',
+              '\n*insert dope text here*\n',
               textAlign: TextAlign.center,
               style: TextStyle(fontStyle: FontStyle.italic, fontSize: 18.0),
+            ),
+            RaisedButton(
+              child: Text('OPEN ROUTE'),
+              color: Colors.blue,
+              textColor: Colors.white,
+              elevation: 4,
+              shape: StadiumBorder(),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondRoute()),
+                );
+              },
             ),
           ],
         ),
@@ -74,6 +97,29 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: changeBrightness,
         tooltip: 'Light/dark mode',
         child: Icon(Icons.brightness_2),
+      ),
+    );
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('CLOSE ROUTE'),
+          color: Colors.blue,
+          textColor: Colors.white,
+          elevation: 4,
+          shape: StadiumBorder(),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
     );
   }
