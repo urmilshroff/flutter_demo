@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:http/http.dart' as http;
-import 'package:beautifulsoup/beautifulsoup.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,27 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
 //    } else {
 //      String mdi = "micro";
 //    }
-
-    String document = """
-  <html><head><title>The Dormouse's story</title></head>
-  <body>
-  <p class="title"><b>The Dormouse's story</b></p>
-
-  <p class="story">Once upon a time there were three little sisters; and their names were
-  <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
-  <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
-  <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
-  and they lived at the bottom of a well.</p>
-
-  <p class="story">...</p>
-  """;
-
-    var url = 'http://example.com/whatsit/create';
-    var response = await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
-
-    var soup = Beautifulsoup(document);
-    var titties = soup("title").outerHtml;
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Home Page"),
@@ -95,8 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontWeight: FontWeight.bold,
                   fontSize: 30.0,
                 )),
-            Text('${titties}'),
-            Text('Response body: ${response.body}!!!'),
             Text(
               '\n*insert dope text here*\n',
               textAlign: TextAlign.center,
