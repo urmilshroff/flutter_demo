@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
+
   void changeBrightness() {
     DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
@@ -40,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void changeColor() {
     DynamicTheme.of(context).setThemeData(new ThemeData(
         primaryColor: Theme.of(context).primaryColor == Colors.blue
-            ? Colors.red
+            ? Colors.blue
             : Colors.blue));
   }
 
@@ -78,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(fontStyle: FontStyle.italic, fontSize: 18.0),
             ),
             RaisedButton(
-              child: Text('OPEN ROUTE'),
+              child: Text('TOGGLE LIGHTS'),
               color: Colors.blue,
               textColor: Colors.white,
               elevation: 4,
@@ -93,10 +96,33 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: changeBrightness,
         tooltip: 'Light/dark mode',
         child: Icon(Icons.brightness_2),
+      ),
+
+      bottomNavigationBar: BottomNavyBar(
+        currentIndex: currentIndex,
+        onItemSelected: (index) => setState(() {
+              currentIndex = index;
+            }),
+        items: [
+          BottomNavyBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            activeColor: Colors.blue,
+          ),
+          BottomNavyBarItem(
+              icon: Icon(Icons.favorite),
+              title: Text('Favorites'),
+              activeColor: Colors.pink),
+          BottomNavyBarItem(
+              icon: Icon(Icons.info),
+              title: Text('Info'),
+              activeColor: Colors.green),
+        ],
       ),
     );
   }
