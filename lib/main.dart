@@ -86,22 +86,23 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.white,
               elevation: 4,
               shape: StadiumBorder(),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SecondRoute()),
-                );
-              },
+              onPressed: changeBrightness,
+//              () {
+//                Navigator.push(
+//                  context,
+//                  MaterialPageRoute(builder: (context) => SecondRoute()),
+//                );
+//              },
             ),
           ],
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: changeBrightness,
-        tooltip: 'Light/dark mode',
-        child: Icon(Icons.brightness_2),
-      ),
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: changeBrightness,
+//        tooltip: 'Light/dark mode',
+//        child: Icon(Icons.brightness_2),
+//      ),
 
       bottomNavigationBar: BottomNavyBar(
         currentIndex: currentIndex,
