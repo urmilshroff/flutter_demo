@@ -105,24 +105,32 @@ class _MyHomePageState extends State<MyHomePage> {
 //      ),
 
       bottomNavigationBar: BottomNavyBar(
-        currentIndex: currentIndex,
+          currentIndex: currentIndex,
+        iconSize: 25,
         onItemSelected: (index) => setState(() {
               currentIndex = index;
             }),
         items: [
           BottomNavyBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-            activeColor: Colors.blue,
-          ),
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+              activeColor: Colors.lightBlue,
+              inactiveColor: Colors.blue),
           BottomNavyBarItem(
               icon: Icon(Icons.favorite),
               title: Text('Favorites'),
-              activeColor: Colors.pink),
+              activeColor: Colors.lightBlue,
+              inactiveColor: Colors.blue),
+          BottomNavyBarItem(
+              icon: Icon(Icons.settings),
+              title: Text('Settings'),
+              activeColor: Colors.lightBlue,
+              inactiveColor: Colors.blue),
           BottomNavyBarItem(
               icon: Icon(Icons.info),
               title: Text('Info'),
-              activeColor: Colors.green),
+              activeColor: Colors.lightBlue,
+              inactiveColor: Colors.blue),
         ],
       ),
     );
