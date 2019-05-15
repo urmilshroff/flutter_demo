@@ -13,16 +13,17 @@ class FirstRoute extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset(
-                'img/flutter-logo.png',
-                height: 150,
-                width: 150,
-              ),
+//              Image.asset(
+//                'img/flutter-logo.png',
+//                height: 150,
+//                width: 150,
+//              ),
+              FlutterLogo(size: 100),
               Text('Welcome to the Flutter Demo App!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
+                    fontSize: 28.0,
                   )),
               Text(
                 '\n*insert dope text here*\n',
